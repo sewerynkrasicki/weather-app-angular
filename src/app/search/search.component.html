@@ -1,0 +1,5 @@
+<div class="search-box">
+    <form [formGroup]="searchForm" (keydown.enter)="onSubmitted()">
+        <input type="text" formControlName="search" class="search-bar" placeholder="Search..."/>
+    </form>
+</div>
