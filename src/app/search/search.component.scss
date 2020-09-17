@@ -5,11 +5,13 @@
 
     align-items: center;
     justify-content: center;
+    text-align: center;
 
     .search-bar{
 
         font-size: 20px;
         padding: 10px;
+        min-width: 350px;
 
         appearance: none;
         border:none;

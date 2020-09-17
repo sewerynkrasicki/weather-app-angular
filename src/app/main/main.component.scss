@@ -1,0 +1,15 @@
+.container{
+    height: 100%;
+    background-image: url("../../assets/hot.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main, .search{
+    width: 100%;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
