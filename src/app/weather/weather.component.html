@@ -4,7 +4,7 @@
         <p class="time">{{ weather.date }}</p>
     </div>
     <div class="temperature-container">
-        <p>{{ weather.temperature }}°</p>
+        <p (click)="changeTemperature()" class="temp-c">{{ weather.temperature }}</p>
     </div>
     <div class="condition-container">
         <p class="condition">{{ weather.condition }} </p>

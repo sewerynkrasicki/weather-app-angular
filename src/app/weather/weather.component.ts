@@ -1,15 +1,7 @@
 import { HttpBackend } from '@angular/common/http';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { WebRequestService } from '../services/web-request.service';
-
-export class WeatherInformation{
-  condition: any;
-  country: any;
-  city: any;
-  temperature: any;
-  date: string;
-}
-
+import { WeatherInformation } from '../models/weather';
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
@@ -18,6 +10,7 @@ export class WeatherInformation{
 export class WeatherComponent implements OnInit, OnChanges {
   @Input() weatherSearch: string;
   weather: WeatherInformation = {} as WeatherInformation;
+  celsius = true;
 
   constructor(public webRequest: WebRequestService) { }
 
@@ -38,13 +31,29 @@ export class WeatherComponent implements OnInit, OnChanges {
         condition: res.weather[0].main,
         country: res.sys.country,
         city: res.name,
-        temperature: res.main.temp,
+        temperature: Math.round(res.main.temp),
         date: `${new Date().toLocaleString()}`
       };
       this.weather = newWheater;
       console.log(this.weather);
     });
   }
+
+  changeTemperature(): void{
+    if (!this.celsius){
+      const cels =  document.getElementsByClassName('temp-f')[0];
+      cels.className = 'temp-c';
+      this.weather.temperature = (this.weather.temperature - 32) * 5 / 9;
+      this.celsius = true;
+    }else{
+      const cels =  document.getElementsByClassName('temp-c')[0];
+      cels.className = 'temp-f';
+      this.weather.temperature = this.weather.temperature * 9 / 5 + 32;
+      this.celsius = false;
+    }
+  }
+
+
 
 
 
