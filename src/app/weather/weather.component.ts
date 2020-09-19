@@ -16,7 +16,15 @@ export class WeatherComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.weatherSearch.currentValue !== undefined){
-      this.searchInformations(changes.weatherSearch.currentValue);
+      if (!this.celsius){
+        const cels =  document.getElementsByClassName('temp-f')[0];
+        cels.className = 'temp-c';
+        this.weather.temperature = Math.round((this.weather.temperature - 32) * 5 / 9);
+        this.celsius = true;
+        this.searchInformations(changes.weatherSearch.currentValue);
+      }else{
+        this.searchInformations(changes.weatherSearch.currentValue);
+      }
     }
   }
 
@@ -43,12 +51,12 @@ export class WeatherComponent implements OnInit, OnChanges {
     if (!this.celsius){
       const cels =  document.getElementsByClassName('temp-f')[0];
       cels.className = 'temp-c';
-      this.weather.temperature = (this.weather.temperature - 32) * 5 / 9;
+      this.weather.temperature = Math.round((this.weather.temperature - 32) * 5 / 9);
       this.celsius = true;
     }else{
       const cels =  document.getElementsByClassName('temp-c')[0];
       cels.className = 'temp-f';
-      this.weather.temperature = this.weather.temperature * 9 / 5 + 32;
+      this.weather.temperature = Math.round(this.weather.temperature * 9 / 5 + 32);
       this.celsius = false;
     }
   }
