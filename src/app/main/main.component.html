@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container" style="background-image: url('../../assets/hot.jpg');">
     <div class="search">
-        <app-search></app-search>
+        <app-search (getValue)="setValue($event)"></app-search>
     </div>
     <div class="main">
-    <app-weather></app-weather>
+    <app-weather [weatherSearch]="searchValue"></app-weather>
     </div>
 </div>

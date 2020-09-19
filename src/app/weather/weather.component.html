@@ -1,12 +1,12 @@
-<div class="container">
+<div *ngIf="weather.city !== undefined" class="container">
     <div class="place-time-container">
-        <p class="place">Northampton, GB</p>
-        <p class="time">Sunday 12 January 2020</p>
+        <p class="place">{{ weather.city }}, {{ weather.country }}</p>
+        <p class="time">{{ weather.date }}</p>
     </div>
     <div class="temperature-container">
-        <p>37°</p>
+        <p>{{ weather.temperature }}°</p>
     </div>
     <div class="condition-container">
-        <p class="condition">Clear</p>
+        <p class="condition">{{ weather.condition }} </p>
     </div>
 </div>
