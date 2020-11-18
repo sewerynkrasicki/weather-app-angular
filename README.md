@@ -1,8 +1,8 @@
 # WeatherApp
 Weather application that use API for current weather Data.
 
-![WeatherApp](https://i.ibb.co/0Mn8vTk/Weather-App1.png)
-![WeatherApp2](https://i.ibb.co/Bn6sD5C/Weather-App2.png)
+![WeatherApp](https://i.postimg.cc/2SDv3TRx/Weather-App1.png)
+![WeatherApp2](https://i.postimg.cc/44Hh5jX5/Weather-App2.png)
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
 
 # Prerequisites
